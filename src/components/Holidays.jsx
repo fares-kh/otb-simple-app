@@ -3,10 +3,16 @@ import './Holidays.css'
 import { TiSortAlphabetically } from "react-icons/ti";
 import { HiCurrencyPound } from "react-icons/hi2";
 import { FaStar } from "react-icons/fa";
+import { FaAngleRight, FaAngleDown } from "react-icons/fa6";
 
 const HolidayList = () => {
     const [holidayData, setHolidayData] = React.useState([])
     const [activeSort, setActiveSort] = React.useState()
+    const [toggleOverview, setToggleOverview] = React.useState(false)
+
+    const showOverview = (key) => {
+        setToggleOverview(toggleOverview === key ? null : key)
+    }
     
     React.useEffect(() => {
         const fetchData = async () => {
@@ -100,6 +106,9 @@ const HolidayList = () => {
                 <div key={holiday.resort.id} className="holiday-container">
                     <div className="holiday-image">
                         <img src={holiday.resort.image.url} alt={holiday.resort.image.description}></img>
+                        <button className="read-more" onClick={() => showOverview(holiday.resort.id)}>
+                            <span><strong>Read more</strong> about this hotel</span>{toggleOverview === holiday.resort.id ? <FaAngleDown/> : <FaAngleRight/>}
+                        </button>
                     </div>
                     <div className="holiday-description">
                         <h2>{holiday.resort.name}</h2>
@@ -129,11 +138,17 @@ const HolidayList = () => {
                         <p>
                             <span>departing from <strong>{holiday.flightDetails.departureAirport}</strong></span>
                         </p>
-                        <button>
+                        <button onClick={()=>{}}>
                             <h3>Book now</h3>
                             <h1>{convertCurrencyNameToSymbol(holiday.bookingDetails.price.currency)}{holiday.bookingDetails.price.amount}</h1>
                         </button>
                     </div>
+                    {toggleOverview === holiday.resort.id && 
+                        <div className="overview">
+                            <h4>Overview</h4>
+                            <p>{holiday.resort.overview}</p>
+                        </div>
+                    }
                 </div>
             ))}
             </div>
