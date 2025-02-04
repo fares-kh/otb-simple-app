@@ -73,6 +73,7 @@ const HolidayList = () => {
     })}
 
     // assumptions, at least 1 adult, alphabetically sorted from AtoZ (ascending), price lowest to highest, and rating highest to lowest
+    // would try and move this to ts, make it separate components and pass states through props
     return (
     <div>
         {holidayData.length === 0 ? (
