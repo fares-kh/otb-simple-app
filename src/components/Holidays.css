@@ -1,4 +1,35 @@
 .holiday-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    background: url('https://static.onthebeach.co.uk/fe-code-test/background.png');
+    padding: 60px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 1px;
+    justify-self: center;
+}
+
+.button-container button {
+    background-color: #FFF;
+    border: none;
+    color: #17317F;
+    padding: 16px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+button.active {
+    background-color: #17317F;
+    color: #FFF;
+}
+
+.button-icon {
+    padding: 0;
 }
