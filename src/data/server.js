@@ -12,7 +12,6 @@ app.get("/api/holidays", async (req, res) => {
 
         await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
 
-        console.log("test")
         await page.goto("https://static.onthebeach.co.uk/fe-code-test/data.json")
 
         const body = await page.evaluate(() => document.body.innerText)
