@@ -141,7 +141,7 @@ const HolidayList = () => {
                         </p>
                         <button onClick={()=>{}}>
                             <h3>Book now</h3>
-                            <h1>{convertCurrencyNameToSymbol(holiday.bookingDetails.price.currency)}{holiday.bookingDetails.price.amount}</h1>
+                            <h1>{convertCurrencyNameToSymbol(holiday.bookingDetails.price.currency)}{(holiday.bookingDetails.price.amount).toFixed(2)}</h1>
                         </button>
                     </div>
                     {toggleOverview === holiday.resort.id && 
