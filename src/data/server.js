@@ -21,7 +21,7 @@ app.get("/api/holidays", async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: "Failed to fetch data", details: error.message })
     }
-});
+})
 
 const PORT = 5001
 app.listen(PORT, () => console.log(`Backend server running on port ${PORT}`))

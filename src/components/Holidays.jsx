@@ -24,7 +24,7 @@ const HolidayList = () => {
                 }
 
                 const data = await response.json()
-                setHolidayData(data)
+                sortPrice(data)
             } catch (error) {
                 console.error('Error fetching holiday data')
             }
@@ -42,9 +42,8 @@ const HolidayList = () => {
         return currencySymbols[currencyName] || currencyName
     }
 
-    const sortAlphabetically = () => {
-        // copy here is made since the state won't know if its mutated if it modifies the original array
-        const sortedData = [...holidayData].sort((a, b) => {
+    const sortAlphabetically = (data) => {
+        const sortedData = [...data].sort((a, b) => {
             if(a.resort.name < b.resort.name) { return -1 }
             if(a.resort.name > b.resort.name) { return 1 }
             return 0
@@ -53,14 +52,14 @@ const HolidayList = () => {
         setActiveSort("alphabetical")
     }
 
-    const sortPrice = () => {
-        const sortedData = [...holidayData].sort((a, b) => a.bookingDetails.price.amount-b.bookingDetails.price.amount)
+    const sortPrice = (data) => {
+        const sortedData = [...data].sort((a, b) => a.bookingDetails.price.amount-b.bookingDetails.price.amount)
         setHolidayData(sortedData)
         setActiveSort("price")
     }
 
-    const sortRating = () => {
-        const sortedData = [...holidayData].sort((a, b) => b.resort.starRating-a.resort.starRating)
+    const sortRating = (data) => {
+        const sortedData = [...data].sort((a, b) => b.resort.starRating-a.resort.starRating)
         setHolidayData(sortedData)
         setActiveSort("rating")
     }
@@ -72,8 +71,6 @@ const HolidayList = () => {
             day: "numeric"
     })}
 
-    // assumptions, at least 1 adult, alphabetically sorted from AtoZ (ascending), price lowest to highest, and rating highest to lowest
-    // would try and move this to ts, make it separate components and pass states through props
     return (
     <div>
         {holidayData.length === 0 ? (
@@ -84,19 +81,19 @@ const HolidayList = () => {
                 <div className="button-container">
                     <button 
                         className={`${activeSort === "alphabetical" ? "active" : ""}`} 
-                        onClick={sortAlphabetically}
+                        onClick={() => sortAlphabetically(holidayData)}
                     >
                         sort alphabetically <TiSortAlphabetically className="button-icon"/>
                     </button>
                     <button 
                         className={`${activeSort === "price" ? "active" : ""}`}
-                        onClick={sortPrice}
+                        onClick={() => sortPrice(holidayData)}
                     >
                         sort by price <HiCurrencyPound className="button-icon"/>
                     </button>
                     <button 
                         className={`${activeSort === "rating" ? "active" : ""}`}
-                        onClick={sortRating}
+                        onClick={() => sortRating(holidayData)}
                     >
                         sort by rating <FaStar className="button-icon"/>
                     </button>
