@@ -13,7 +13,7 @@ You will notice a `server.js` file, I've ran into some CORS issues with CloudFla
 To run tests,  `npm test`
 
 Preview:
-<img width="1429" alt="image" src="https://github.com/user-attachments/assets/3ab604f5-161f-4807-aa0e-176eca61520d" />
+<img width="1373" alt="image" src="https://github.com/user-attachments/assets/ca9e2f31-4336-4d0a-8126-12218400802c" />
 
 Notable Libraries:
 - CORS (for server)
