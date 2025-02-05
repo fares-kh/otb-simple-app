@@ -39,6 +39,8 @@ Each holiday has a toggleable overview button, which expands and collapses the d
 
 For responsiveness, it was ensured that the component was visible in multiple screen sizes using media queries.
 
+AI was used for minor assistance in the development of this solution, however it was not relied on. Most, if not, all work done here are applicable skills from previous projects in the past. Mainly, the CORS server issues when fetching the JSON was my main cause of query to AI, and it proved to be useful in this case!
+
 ## Testing
 
 Testing Library was used to verify that the holiday cards are displayed appropriately, and the sorting and toggle functionality behaves as expected. These consist of 6 tests in `Holidays.test.js`.
@@ -53,7 +55,7 @@ It was assumed that price was sorted from lowest to highest, alphabetically from
 
 ## Challenges Faced
 
-Most notably, handling the asynchronous data was the biggest gripe, not only with facing difficulties locally, but ensuring that it is handled and stored appropriately. I believe when it comes to larger datasets this may prove even more difficult.
+Most notably, handling the asynchronous data was the biggest gripe, not only with facing difficulties locally, but ensuring that it is handled and stored appropriately. I believe when it comes to larger datasets this may prove even more difficult. 
 
 ## Scalability
 
